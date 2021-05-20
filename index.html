@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
+        <title>JavaScript</title>
+        <style>
+            body {
+                background-color: lavender; 
+                color: #51802b;
+                margin: 5% 10%;
+            }
+
+            /**
+             * Styles all largest headings to be aligned to center and have
+             * a font size of 40 pixels.
+             */
+            h1 {
+                text-align: center;
+                font-size: 40px;
+            }
+
+            nav {
+                display: -ms-flexbox;
+                display: -moz-box;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                width: 100%;
+            }
+
+            /**
+             * Styles all unordered lists to have no bullet points 
+             * beside list items.
+             */
+            nav ul {
+                display: -ms-flexbox;
+                display: -moz-box;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+            }
+
+            /**
+             * Styles all list items to add 5 pixels of padding,
+             * 4 pixels of margin, and a font size of 20 pixels.
+             */
+            nav li {
+                -moz-box-flex: 1;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;
+                padding: 5px;
+                margin: 4px;
+                font-size: 20px;
+            }
+
+            /**
+             * Styles all links with a class of navLinks to add
+             * 5 pixels of padding, 4 pixels of margin, a border
+             * that is solid black and 2 pixels wide, a background
+             * color of #eeffee (light green), and a text color of dark green.
+             */
+            nav li a {
+                display: block;
+                padding: 5px;
+                margin: 4px;
+                border: 2px solid black;
+                background-color: #eeffee;
+                color: darkgreen;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">JavaScript Home Page</a>
+                </li>
+                <li>
+                    <a href="changing-elements.html">Changing Inner HTML and Style using JS</a>
+                </li>
+            </ul>
+        </nav>
+        <h1>JavaScript</h1>
+        <button onclick="alert('Welcome to my JavaScript website!');">First Message</button>
+        <button id="second-btn">Second Message</button>
+
+        <br /><br />
+        <div id="coloured-div" style="display: inline-block; width: 500px; height: 500px;"></div>
+        <br />
+        <button id="colour-changer" onclick="generateColour()">Generate a Random Colour</button>
+
+        <!-- Your name goes here -->
+        <script>
+            /** 
+             * Gotten the second button using its ID, then set the onclick
+             * attribute to display an alert.
+             */
+            document.getElementById("second-btn").setAttribute("onclick", "alert('You clicked me!');");
+        </script>
+
+        <script>
+            function generateColour() {
+                
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Divs and Spans</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
+        <style>
+            /**
+             * Styles the body of the document to have a background color of
+             * lavender and text color of #51802b (a shade of green).
+             */
+            body {
+                background-color: lavender; 
+                color: #51802b;
+                margin: 5% 10%;
+            }
+
+            /**
+             * Styles all largest headings to be aligned to center and have
+             * a font size of 40 pixels.
+             */
+            h1 {
+                text-align: center;
+                font-size: 40px;
+            }
+
+            /**
+             * Styles all paragraphs to have a font size of 24 pixels.
+             */
+            p {
+                font-size: 24px;
+            }
+
+            /**
+             * Styles the paragraph with the ID of styledById to use the
+             * font Georgia. If it cannot use Georgia, it will try using Cambria.
+             * If it cannot use Cambria, it will use the default serif font.
+             * It also styles the text to be bold.
+             */
+            #styledById {
+                font-family: Georgia, Cambria, serif;
+                font-weight: bold;
+            }
+
+            nav {
+                display: -ms-flexbox;
+                display: -moz-box;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                width: 100%;
+            }
+
+            /**
+             * Styles all unordered lists to have no bullet points 
+             * beside list items.
+             */
+            nav ul {
+                display: -ms-flexbox;
+                display: -moz-box;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+            }
+
+            /**
+             * Styles all list items to add 5 pixels of padding,
+             * 4 pixels of margin, and a font size of 20 pixels.
+             */
+            nav li {
+                -moz-box-flex: 1;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;
+                padding: 5px;
+                margin: 4px;
+                font-size: 20px;
+            }
+
+            /**
+             * Styles all links with a class of navLinks to add
+             * 5 pixels of padding, 4 pixels of margin, a border
+             * that is solid black and 2 pixels wide, a background
+             * color of #eeffee (light green), and a text color of dark green.
+             */
+            nav li a {
+                display: block;
+                padding: 5px;
+                margin: 4px;
+                border: 2px solid black;
+                background-color: #eeffee;
+                color: darkgreen;
+                text-align: center;
+            }
+
+            /**
+             * Styles the div element to have a background color of ghost white,
+             * a height of 140px and a width that is normal for the div itself.
+             */
+            div {
+                background-color: ghostwhite;
+                height: 140px;
+                width: auto;
+            }
+
+            /**
+             * Styles the span element to have a background color of indigo,
+             * bold text, and aligns text to center.
+             */
+            span {
+                background-color: indigo;
+                font-weight: bold;
+                padding-left: 4px;
+            }
+
+            /**
+             * Styles all links in every span element to have a text color of
+             * plum. (Uses descendant selectors, i.e. select all anchors that 
+             * are inside spans)
+             */
+            span a {
+                color: #eeffee;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">JavaScript Home Page</a>
+                </li>
+                <li>
+                    <a href="changing-elements.html">Changing Inner HTML and Style using JS</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <h1>Changing Inner HTML and Style using JS</h1>
+            <div style="padding: 10px 20px;">
+                <p>This page plays with divs and spans and adds styling to the divs and spans.</p>
+                <p id="styledById">This paragraph will show the effect of giving an element an ID and styling that ID.</p>
+            </div>
+            <!-- Added this ID because I wanted to change the content of this paragraph -->
+            <p id="externalLinkDescription">
+                If you want to see the PTEC website, click on this 
+                <span>
+                    <!-- Added this ID so I can change the href -->
+                    <a id="externalLink" href="https://www.pembinatrails.ca/schools/earlycollege/Pages/default.aspx">link</a>
+                </span>!
+            </p>
+            <!-- Added the button to allow for changes -->
+            <button id="change" onclick="changeWebsite()">Change The Website</button>
+        </main>
+
+        <script>
+            function changeWebsite()
+            { 
+                document.getElementById('styledById').innerHTML = "This paragraph has been changed by the button";
+                document.getElementById('styledById').style.fontFamily = "Helvetica, Calibri, sans-serif";
+                
+                document.getElementById('styledById').style.color = "red";
+
+                document.getElementById('externalLinkDescription').innerHTML = "If you want to see Mr. Hardman's GitHub, click on this <span><a id='externalLink' href='https://www.pembinatrails.ca/schools/earlycollege/Pages/default.aspx'>link</a></span>!";
+                
+                document.getElementById('externalLink').setAttribute('href', 'https://github.com/mrhardman23');
+            }
+        </script>
+    </body>
+</html>
