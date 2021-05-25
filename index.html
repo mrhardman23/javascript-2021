@@ -86,29 +86,80 @@
                 <li>
                     <a href="changing-elements.html">Changing Inner HTML and Style using JS</a>
                 </li>
+                <li>
+                    <a href="shopping-list.html">JS Shopping List</a>
+                </li>
             </ul>
         </nav>
         <h1>JavaScript</h1>
-        <button onclick="alert('Welcome to my JavaScript website!');">First Message</button>
+        <button id="first-btn" onclick="alert('Welcome to my JavaScript website!');">First Message</button>
         <button id="second-btn">Second Message</button>
+        <button onclick="swap('first-btn', 'second-btn')">Swap Text</button>
 
         <br /><br />
         <div id="coloured-div" style="display: inline-block; width: 500px; height: 500px;"></div>
         <br />
         <button id="colour-changer" onclick="generateColour()">Generate a Random Colour</button>
 
-        <!-- Your name goes here -->
         <script>
             /** 
              * Gotten the second button using its ID, then set the onclick
              * attribute to display an alert.
              */
             document.getElementById("second-btn").setAttribute("onclick", "alert('You clicked me!');");
-        </script>
 
-        <script>
-            function generateColour() {
+            /**
+             * generateColour generates three random values for red, green, and blue respectively
+             * and then uses those randomly generated colours to change the background colour of
+             * a div on this page
+             * 
+             */
+            function generateColour() 
+            {
+                /**
+                 * RGB values max out at 255. Math.random gives a random value between 0 and 1.
+                 * 255.0 * Math.random() will give a random value between 0 and 255 as a decimal.
+                 * We need the value to be an integer, so we use Math.round on the entire calculation
+                 * to round the 255.0 * Math.random() calculation to the nearest integer.
+                 */
+                var red = Math.round( Math.random() * 255.0 );
+                var green = Math.round( Math.random() * 255.0 );
+                var blue = Math.round( Math.random() * 255.0 );
+
+                /**
+                 * We use the backgroundColor style property to change the background color
+                 * of the div. To use the three separate red, greeb, and blue values, we must
+                 * set background-color to use the rgb() function. This requires string concatenation
+                 * by typing "rgb(" and then adding the red value. Then, we add ", " to separate the
+                 * red and green values. We can then add the green value and another ", " to separate
+                 * the green and blue values. We add the blue value, and then finish with ")" to finish
+                 * the parentheses for the rgb() function.
+                 */
+                document.getElementById("coloured-div").style.backgroundColor = "rgb(" + red + ", " + green + ", " + blue + ")";
+
+                // Here the values of the red, green, and blue variables get displayed in the console.
+                window.console.log("Red: " + red);
+                window.console.log("Green: " + green);
+                window.console.log("Blue: " + blue);
                 
+            }
+
+            /**
+             * swap swaps the innerHTMLs of two elements that have their IDs passed to this function
+             * 
+             * @param firstId is the ID of the first element we will swap the innerHTML of
+             * @param secondId is the ID of the second element we will swap the innerHTML of
+             */
+            function swap( firstId, secondId ) 
+            {
+                // I store the innerHTML of the first element using the firstId parameter in my temp variable
+                var temp = document.getElementById(firstId).innerHTML;
+
+                // Change the inner HTML of the first element to be the inner HTML of the second element
+                document.getElementById(firstId).innerHTML = document.getElementById(secondId).innerHTML;
+
+                // Change the inner HTML of the second element using the stored value of the inner HTML of the first element
+                document.getElementById(secondId).innerHTML = temp;
             }
         </script>
     </body>
