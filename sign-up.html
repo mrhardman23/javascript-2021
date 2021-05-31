@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign Up</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            * {
+                font-size: 20px;
+            }
+
+            html {
+                margin: 8px 10%;
+            }
+
+            body {
+                background-color: lavender; 
+                color: #51802b;
+                margin: 5% 10%;
+            }
+
+            /**
+             * Styles all largest headings to be aligned to center and have
+             * a font size of 40 pixels.
+             */
+            h1 {
+                text-align: center;
+                font-size: 40px;
+            }
+
+            nav {
+                display: -ms-flexbox;
+                display: -moz-box;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                width: 100%;
+            }
+
+            /**
+             * Styles all unordered lists to have no bullet points 
+             * beside list items.
+             */
+            nav ul {
+                display: -ms-flexbox;
+                display: -moz-box;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+            }
+
+            /**
+             * Styles all list items to add 5 pixels of padding,
+             * 4 pixels of margin, and a font size of 20 pixels.
+             */
+            nav li {
+                -moz-box-flex: 1;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;
+                padding: 5px;
+                margin: 4px;
+                font-size: 20px;
+            }
+
+            /**
+             * Styles all links with a class of navLinks to add
+             * 5 pixels of padding, 4 pixels of margin, a border
+             * that is solid black and 2 pixels wide, a background
+             * color of #eeffee (light green), and a text color of dark green.
+             */
+            nav li a {
+                display: block;
+                padding: 5px;
+                margin: 4px;
+                border: 2px solid black;
+                background-color: #eeffee;
+                color: darkgreen;
+                text-align: center;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 48px;
+            }
+
+            #error {
+                font-weight: bolder;
+                font-style: italic;
+                color: red;
+                margin: 15px;
+            }
+
+            #flex-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .item-wrapper {
+                display: flex;
+                flex-basis: 100%;
+                justify-content: center;
+            }
+
+            form {
+                display: grid;
+                grid-template-rows: max-content;
+                grid-template-columns: 1fr;
+                grid-gap: 10px;
+            }
+
+            label {
+                font-weight: bold;
+            }
+
+            @media screen and (min-width: 800px) {
+                form {
+                    grid-template-columns: [label] 1fr [input] 3fr;
+                }
+
+                label {
+                    text-align: right;
+                }
+
+                input[type="button"]{
+                    grid-column: span 2;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">JavaScript Home Page</a>
+                </li>
+                <li>
+                    <a href="changing-elements.html">Changing Inner HTML and Style using JS</a>
+                </li>
+                <li>
+                    <a href="shopping-list.html">JS Shopping List</a>
+                </li>
+                <li>
+                    <a href="sign-up.html">Sign Up</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <h1>Sign Up</h1>
+            <p>
+                Your password must include:
+                <ul>
+                    <li>At least ten characters</li>
+                    <li>At least one capital letter</li>
+                    <li>At least one number</li>
+                    <li>At least one symbol</li>
+                </ul>
+            </p>
+            <p>Please enter the following information:</p>
+            <div id="flex-wrapper">
+                <div id="error"></div>
+                <div class="item-wrapper">
+                    <form>
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" />
+
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" />
+
+                        <label for="telephone">Telephone Number:</label>
+                        <input type="tel" id="telephone" name="telephone" placeholder="(555)-867-5309" />
+
+                        <label for="email">E-mail Address:</label>
+                        <input type="email" id="email" name="email" placeholder="user@example.com" />
+
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter a password" />
+
+                        <label for="confirm">Confirm Your Password:</label>
+                        <input type="password" id="confirm" name="confirm" placeholder="Re-enter your password" />
+
+                        <input type="button" id="sign-up" value="Sign Up" onclick="signUp()"/>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <script src="js/signUp.js"></script>
+    </body>
+</html>

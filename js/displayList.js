@@ -32,7 +32,10 @@ function appendToList()
     // Store the body of the table in a variable
     var tableBody = table.getElementsByTagName('tbody')[0];
 
-    // Create the new table row that will store the item and quantity data
+    /**
+     * Create the new table row that will store the data that is 
+     * input by the user
+     */
     var newTableRow = document.createElement("tr");
 
     /**
@@ -46,6 +49,7 @@ function appendToList()
      * new data items in the new row of the table
      */
     var newTableData;
+
 
     /**
      * Check if there are no items in the table...
@@ -105,13 +109,16 @@ function appendToList()
 
     // Clear the contents of the item textbox so the user doesn't have to after submitting
     quantityInput.value = "";
+    
 
     /**
      * Sets the focus to the item textbox input so that the user can start typing the next
      * item in their shopping list automatically
      */ 
     itemInput.focus();
+    
 
     // Adds one to the number of items variable
     numItems++;
+
 }
